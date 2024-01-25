@@ -1,6 +1,6 @@
 defmodule Farside.Router do
-  @index Application.fetch_env!(:farside, :index)
-  @route Application.fetch_env!(:farside, :route)
+  @index Application.compile_env!(:farside, :index)
+  @route Application.compile_env!(:farside, :route)
 
   use Plug.Router
 
