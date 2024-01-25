@@ -5,8 +5,8 @@ defmodule Farside.Application do
 
   @impl true
   def start(_type, _args) do
-    farside_port = Application.fetch_env!(:farside, :port)
-    data_dir = Application.fetch_env!(:farside, :data_dir)
+    farside_port = Application.compile_env!(:farside, :port)
+    data_dir = Application.compile_env!(:farside, :data_dir)
     IO.puts "Running on http://localhost:#{farside_port}"
 
     children = [
