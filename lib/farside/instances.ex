@@ -4,6 +4,7 @@ defmodule Farside.Instances do
   @service_prefix Application.compile_env!(:farside, :service_prefix)
   @headers Application.compile_env!(:farside, :headers)
   @queries Application.compile_env!(:farside, :queries)
+  services_json = Application.compile_env!(:farside, :services_json)
   @debug_header "======== "
   @debug_spacer "         "
 
@@ -43,7 +44,6 @@ defmodule Farside.Instances do
   end
 
   def update() do
-    services_json = Application.compile_env!(:farside, :services_json)
     {:ok, file} = File.read(services_json)
     {:ok, json} = Jason.decode(file)
 
