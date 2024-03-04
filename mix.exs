@@ -2,7 +2,7 @@ defmodule Farside.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/benbusby/farside.git"
-  @version "0.1.1"
+  @version "0.2.2"
   @app :farside
 
   def project do
