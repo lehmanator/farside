@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Remove cloudflare instances from services-full.json
 
 rm -f out.json
