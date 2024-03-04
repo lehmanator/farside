@@ -10,7 +10,7 @@ defmodule Farside.MixProject do
       app: @app,
       version: @version,
       name: "farside",
-      elixir: "~> 1.8",
+      elixir: "~> 1.12",
       source_url: @source_url,
       start_permanent: Mix.env() == :prod || Mix.env() == :cli,
       deps: deps(),
