@@ -8,7 +8,7 @@ config :farside,
   index: "index.eex",
   route: "route.eex",
   headers: [
-    {"User-Agent", "Mozilla/5.0 (compatible; Farside/0.1.0; +https://farside.link)"},
+    {"User-Agent", "Mozilla/5.0 (compatible; Farside/0.2.2; +https://farside.link)"},
     {"Accept", "text/html"},
     {"Accept-Language", "en-US,en;q=0.5"},
     {"Accept-Encoding", "gzip, deflate, br"}
