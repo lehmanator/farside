@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # Remove cloudflare instances from services-full.json
 
-rm -f out.json
-file="services-full.json"
+tmpfile="out.json"
+infile="${1:-services-full.json}"
+outfile="${2:-services.json}"
+
+rm -f "${tmpfile}"
 
 while read -r line; do
     if [[ "$line" == "\"https://"* ]]; then
@@ -28,15 +31,15 @@ while read -r line; do
         done
 
         if [ $cf -eq 0 ]; then
-            echo "$line" >> out.json
+            echo "$line" >> "${tmpfile}"
         fi
     else
-        echo "$line" >> out.json
+        echo "$line" >> "${tmpfile}"
     fi
-done <$file
+done <$infile
 
 # Remove any trailing commas from new instance lists
-sed -i -e ':begin' -e '$!N' -e 's/,\n]/\n]/g' -e 'tbegin' -e 'P' -e 'D' out.json
+sed -i -e ':begin' -e '$!N' -e 's/,\n]/\n]/g' -e 'tbegin' -e 'P' -e 'D' "${tmpfile}"
 
-cat out.json | jq --indent 2 . > services.json
-rm -f out.json
+cat "${tmpfile}" | jq --indent 2 . > "${outfile}"
+rm -f "${tmpfile}"
